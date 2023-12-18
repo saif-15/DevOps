@@ -1,0 +1,15 @@
+- name: Install and Run Nginx server
+  hosts: all
+  become: yes
+  become_user: root
+
+  tasks:
+    - name: Install Nginx server
+      yum:
+        name: nginx
+        state: present
+
+    - name: run Nginx server
+      service:
+        name: nginx
+        state: started
